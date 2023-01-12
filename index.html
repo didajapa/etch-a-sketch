@@ -10,10 +10,11 @@
 <body>
     <div class="mainContainer">
         <div class="gridSizeContainer">
-            <input type="range" min="1" max="100" value="16" class="gridSizeSlider">
-            <p>Size: <span id="gridSize"></span></p>
+            <p>Size: <span id="gridSize">16 x 16</span></p>
+            <input type="range" min="1" max="64" value="16" id="gridSizeSlider">
         </div>
-        <div class="gridContainer"></div>
+        
+        <div id="gridContainer"></div>
     </div>
 
     <script src="script.js"></script>
