@@ -10,6 +10,7 @@ body {
 }
 
 .gridContainer {
+    margin-top: 1em;
     display: grid;
     /* gap: 1em; */
     grid-template-rows: repeat(16, 1fr);
@@ -19,9 +20,13 @@ body {
 }
 
 .innerDiv {
-    /* padding: 1em; */
+    background-color: rgba(170, 207, 201, 0.3);
     padding-bottom: 100%;
     border: 1px solid whitesmoke;
     text-align: center;
 }
 
+.innerDiv:hover {
+    background-color: rgb(5, 100, 84);
+
+}
