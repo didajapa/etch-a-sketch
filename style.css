@@ -5,6 +5,7 @@
 
 body {
     background-color: rgb(5, 100, 84);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #gridContainer {
@@ -24,11 +25,32 @@ body {
     background-color: rgb(5, 100, 84);
 
 }
-
-/* .gridSizeContainer { */
+.gridSettings {
+    display: flex;
+    flex-direction: column;
     /* border: 1px solid whitesmoke; */
-    
-/* } */
+    gap: 1em;
+    align-items: center;
+}
+h1 {
+    color: whitesmoke;
+    text-align: center;
+}
+
+p {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+button {
+    width: 80%;
+    height: 4%;
+}
+
+input[type='color']{
+    width: 80%;
+    height: 10%;
+}
 
 input[type='range'] {
     -webkit-appearance: none;
@@ -36,6 +58,7 @@ input[type='range'] {
     /* background-color: rgb(20, 54, 204); */
     background-color: whitesmoke;
     height: 0.2em;
+    width: 80%
 
 }
   

@@ -6,10 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-sketch</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body>
+    <h1>Etch-a-sketch</h1>
     <div class="mainContainer">
-        <div class="gridSizeContainer">
+        <div class="gridSettings">
+            <p>Pick a color:</p>
+            <input type="color" id="colorPicker" value="#056454">
+            <button id="colorMode">Color mode</button>
+            <button id="rgbMode">Random color mode</button>
+            <button id="eraser">Eraser</button>
+            <button id="clear">Clear</button>
+
+
             <p>Size: <span id="gridSize">16 x 16</span></p>
             <input type="range" min="1" max="64" value="16" id="gridSizeSlider">
         </div>
