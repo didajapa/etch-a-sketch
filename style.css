@@ -10,15 +10,17 @@ body {
 
 #gridContainer {
     display: grid;
-    width: 75vw;
-    /* border: 1px solid whitesmoke; */
+    /* width: 75vw; */
+    height: 80vh;
+    /* border: 1px solid red; */
+    aspect-ratio: 1 / 1;
 }
 
 .innerDiv {
     background-color: rgba(170, 207, 201, 0.3);
-    padding-bottom: 100%;
+    /* padding-bottom: 100%; */
     border: 1px solid rgba(245, 245, 245, 0.486);
-    
+    aspect-ratio: 1 / 1;
 }
 
 .innerDiv:hover {

@@ -11,10 +11,12 @@ let currentMode = DEFAULT_MODE;
 const gridSizeSlider = document.getElementById('gridSizeSlider');
 const gridSize = document.getElementById('gridSize');
 const container = document.getElementById('gridContainer');
+const colorPicker = document.getElementById('colorPicker');
 
 
 gridSizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 gridSizeSlider.onchange = (e) => changeSize(e.target.value);
+colorPicker.oninput = (e) => setColor(e.target.value);
 
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
@@ -22,7 +24,9 @@ document.body.onmouseup = () => (mouseDown = false);
 
 // FUNCTIONS------------------------------------------------------------
 
-
+function setColor(newColor) {
+    currentColor = newColor;
+}
 
 function updateSizeValue(value) {
     gridSize.innerHTML = `${value} x ${value}`;
@@ -52,7 +56,7 @@ function makeGrid(size) {
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`
 
-    for (let i = 0; i < size * size; i++) {
+    for (let i = 0; i < size ** 2; i++) {
         const innerDiv = document.createElement('div');
         innerDiv.classList.add('innerDiv');
         innerDiv.addEventListener('mouseover', changeColor)
@@ -67,6 +71,7 @@ function makeGrid(size) {
 function changeColor(e){
     // console.log(e.type);
     if (e.type === 'mouseover' && !mouseDown) return
+    e.target.style.backgroundColor = currentColor
 }
 
 window.onload = () => {
