@@ -1,7 +1,7 @@
 // Default settings
 const DEFAULT_SIZE = 16;
 const DEFAULT_COLOR = '#056454';
-const DEFAULT_MODE = 'one'
+const DEFAULT_MODE = 'color'
 
 let currentSize = DEFAULT_SIZE;
 let currentColor = DEFAULT_COLOR;
@@ -12,17 +12,47 @@ const gridSizeSlider = document.getElementById('gridSizeSlider');
 const gridSize = document.getElementById('gridSize');
 const container = document.getElementById('gridContainer');
 const colorPicker = document.getElementById('colorPicker');
+const colorMode = document.getElementById('colorMode');
+const rgbMode = document.getElementById('rgbMode');
+const eraser = document.getElementById('eraser');
+const clear = document.getElementById('clear');
 
+makeGrid(currentSize);
+setMode(currentMode);
 
 gridSizeSlider.onmousemove = (e) => updateSizeValue(e.target.value);
 gridSizeSlider.onchange = (e) => changeSize(e.target.value);
 colorPicker.oninput = (e) => setColor(e.target.value);
+
+colorMode.addEventListener('click', () => setMode('color'));
+rgbMode.addEventListener('click', () => setMode('rgb'));
+eraser.addEventListener('click', () => setMode('eraser'));
+  
 
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
 
 // FUNCTIONS------------------------------------------------------------
+
+function setMode(mode) {
+    currentMode = mode;
+    
+
+    if (currentMode === 'color'){
+        colorMode.style.backgroundColor = "rgba(170, 207, 201, 0.3)";
+        rgbMode.style.backgroundColor = "whitesmoke";
+        eraser.style.backgroundColor = "whitesmoke";
+    } else if (currentMode === 'rgb'){
+        rgbMode.style.backgroundColor = "rgba(170, 207, 201, 0.3)";
+        colorMode.style.backgroundColor = "whitesmoke";
+        eraser.style.backgroundColor = "whitesmoke";
+    } else if (currentMode === 'eraser'){
+        eraser.style.backgroundColor = "rgba(170, 207, 201, 0.3)";
+        rgbMode.style.backgroundColor = "whitesmoke";
+        colorMode.style.backgroundColor = "whitesmoke";
+    }
+}
 
 function setColor(newColor) {
     currentColor = newColor;
@@ -45,10 +75,10 @@ function setCurrentSize(newSize) {
 function reloadGrid() {
     clearGrid();
     makeGrid(currentSize);
+    document.body.click();
 }
 
 function clearGrid() {
-    // console.log(currentSize);
     container.innerHTML = '';
 }
 
@@ -63,7 +93,7 @@ function makeGrid(size) {
         innerDiv.addEventListener('mousedown', changeColor)
         container.appendChild(innerDiv);
     }
-    gridSize.innerHTML = `${size} x ${size}`;
+    // gridSize.innerHTML = `${size} x ${size}`;
 
 
 }
@@ -74,6 +104,6 @@ function changeColor(e){
     e.target.style.backgroundColor = currentColor
 }
 
-window.onload = () => {
-    makeGrid(DEFAULT_SIZE);
-}
+// window.onload = () => {
+    // makeGrid(DEFAULT_SIZE);
+// }

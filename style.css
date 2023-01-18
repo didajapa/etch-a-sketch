@@ -45,40 +45,41 @@ p {
 }
 
 button {
-    width: 80%;
-    height: 4%;
+    width: 10vw;
+    height: 2rem;
+    background-color: whitesmoke;
 }
 
 input[type='color']{
-    width: 80%;
-    height: 10%;
+    width: 10vw;
+    height: 5vh;
 }
 
 input[type='range'] {
     -webkit-appearance: none;
     appearance: none;
     /* background-color: rgb(20, 54, 204); */
-    background-color: whitesmoke;
+    background-color: rgba(170, 207, 201, 0.3);
     height: 0.2em;
-    width: 80%
+    width: 10vw;
 
 }
   
   input[type='range']::-webkit-slider-runnable-track {
     height: 10px;
-    border: 1px solid var(--primary-dark);
+    /* border: 1px solid yellow; */
     border-radius: 25px;
-    /* background-color: rgb(211, 22, 186); */
+    /* background-color: r */
     
   }
   
   input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 25px;
-    margin-top: -8px;
-    /* background-color: rgb(209, 87, 31); */
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    margin-top: -2px;
+    background-color: whitesmoke;
   }
 
 .mainContainer {
