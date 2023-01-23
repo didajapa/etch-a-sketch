@@ -102,18 +102,11 @@ function makeGrid(size) {
 function changeColor(e){
     // console.log(e.type);
     if (e.type === 'mouseover' && !mouseDown) return
-    if (currentMode === 'color') {
-        e.target.style.backgroundColor = currentColor;
-    } else if (currentMode === 'rgb'){
+    if (currentMode === 'rgb') {
         // Randomize color
-        e.target.style.backgroundColor = currentColor;
+        currentColor = '#' + (Math.floor(Math.random()*16777215).toString(16));
     } else if (currentMode === 'eraser') {
         currentColor = EMPTY_COLOR;
-        e.target.style.backgroundColor = currentColor;
-    }
-    // console.log(currentColor);
+    } 
+    e.target.style.backgroundColor = currentColor;
 }
-
-// window.onload = () => {
-    // makeGrid(DEFAULT_SIZE);
-// }
