@@ -1,7 +1,8 @@
 // Default settings
 const DEFAULT_SIZE = 16;
 const DEFAULT_COLOR = '#056454';
-const DEFAULT_MODE = 'color'
+const DEFAULT_MODE = 'color';
+const EMPTY_COLOR = 'rgba(170, 207, 201, 0.3)';
 
 let currentSize = DEFAULT_SIZE;
 let currentColor = DEFAULT_COLOR;
@@ -27,6 +28,8 @@ colorPicker.oninput = (e) => setColor(e.target.value);
 colorMode.addEventListener('click', () => setMode('color'));
 rgbMode.addEventListener('click', () => setMode('rgb'));
 eraser.addEventListener('click', () => setMode('eraser'));
+
+clear.addEventListener('click', () => reloadGrid());
   
 
 let mouseDown = false;
@@ -93,15 +96,22 @@ function makeGrid(size) {
         innerDiv.addEventListener('mousedown', changeColor)
         container.appendChild(innerDiv);
     }
-    // gridSize.innerHTML = `${size} x ${size}`;
-
 
 }
 
 function changeColor(e){
     // console.log(e.type);
     if (e.type === 'mouseover' && !mouseDown) return
-    e.target.style.backgroundColor = currentColor
+    if (currentMode === 'color') {
+        e.target.style.backgroundColor = currentColor;
+    } else if (currentMode === 'rgb'){
+        // Randomize color
+        e.target.style.backgroundColor = currentColor;
+    } else if (currentMode === 'eraser') {
+        currentColor = EMPTY_COLOR;
+        e.target.style.backgroundColor = currentColor;
+    }
+    // console.log(currentColor);
 }
 
 // window.onload = () => {
